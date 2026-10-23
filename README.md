@@ -129,9 +129,9 @@ The main directories have the following responsibilities:
 
 ## How to Run the Tests
 
-The automated tests execute against the publicly available OrangeHRM demo application.
+The automated tests run against the publicly available OrangeHRM demo application.
 
-Unlike locally hosted applications, the OrangeHRM demo does not require a separate application server to be installed or started.
+No local application server, database setup, or additional environment configuration is required. An active internet connection is necessary.
 
 ### Prerequisites
 
@@ -140,11 +140,18 @@ Unlike locally hosted applications, the OrangeHRM demo does not require a separa
 - Google Chrome
 - Internet connection
 
-### 1. Clone the test repository
+### 1. Clone the repository
 
-Clone this repository and navigate to the project directory.
+Clone the project from GitHub and navigate to its directory:
+
+```bash
+git clone https://github.com/pedrogitahy-qa/orangehrm-cypress-tests.git
+cd orangehrm-cypress-tests
+```
 
 ### 2. Install dependencies
+
+Install the project dependencies using npm:
 
 ```bash
 npm install
@@ -152,29 +159,47 @@ npm install
 
 ### 3. Execute the automated tests
 
-Run the complete test suite using Google Chrome:
+Run the complete test suite in Google Chrome using headless mode:
 
 ```bash
 npm test
 ```
 
-This command executes both specifications in headless mode.
+This command executes both Cypress specifications automatically and displays the execution results in the terminal.
 
-### 4. Open Cypress interactively
+### 4. Run the tests interactively
 
-To execute or inspect the tests through the Cypress Test Runner:
+To open the Cypress Test Runner and visually inspect the automated scenarios:
 
 ```bash
 npm run cy:open
 ```
 
-Alternatively, run the suite using the Cypress configured/default browser:
+In the Cypress interface:
+
+1. Select **E2E Testing**.
+2. Choose **Google Chrome** and start E2E testing.
+3. Select `login.cy.js` or `my-info.cy.js` to run the corresponding test scenarios.
+
+The browser will display the application interactions, Cypress commands, assertions, and test results.
+
+### 5. Alternative command-line execution
+
+To execute the test suite using the Cypress default browser in headless mode:
 
 ```bash
 npm run cy:run
 ```
 
-The public OrangeHRM demo environment may contain shared or changing test data. Execution results can therefore vary depending on application availability and the current state of the environment.
+This command uses the browser selected by Cypress rather than explicitly requiring Google Chrome.
+
+### Execution considerations
+
+The tests run against a shared public demonstration environment. Application availability, network conditions, and changes to shared test data may affect execution results.
+
+The test suite does not require a locally hosted OrangeHRM application.
+
+The installation and execution procedures were verified on October 23, 2026, using a fresh clone of the GitHub repository on Linux, with Google Chrome and Cypress 15.14.0. Both the headless execution and interactive Cypress Test Runner were successfully validated.
 
 ---
 
